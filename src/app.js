@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 });
 
 // Configurar rutas con prefijo /api
-// app.use("/api", routes);
+app.use("/api", routes);
 
 // Inicio del servidor
 app.listen(port, () => {
