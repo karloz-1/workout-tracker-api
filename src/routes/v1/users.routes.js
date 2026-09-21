@@ -4,7 +4,7 @@ const router = express.Router();
 // Estado en memoria (simulación)
 let users = [
   {
-    id: "b42f53fa-7b30-4b91-8d36-dc1c6ef27611",
+    id: "1",
     name: "Carlos Navia",
     email: "carlos@example.com",
     role: "user",

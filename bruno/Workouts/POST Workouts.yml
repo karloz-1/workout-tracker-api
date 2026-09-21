@@ -1,0 +1,27 @@
+info:
+  name: POST Workouts
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:8000/api/v1/workouts/
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Biceps",
+        "description": "Rutina de biceps",
+        "exercises": [1, 4, 5]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

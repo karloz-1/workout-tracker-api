@@ -1,0 +1,16 @@
+info:
+  name: DELETE Workouts
+  type: http
+  seq: 4
+
+http:
+  method: DELETE
+  url: http://localhost:8000/api/v1/workouts/1790020626284
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
