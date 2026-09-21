@@ -1,0 +1,27 @@
+info:
+  name: PUT Workouts
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: http://localhost:8000/api/v1/workouts/1790020467955
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Torso",
+        "description": "Rutina de pierna",
+        "exercises": [1, 4, 5]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false
