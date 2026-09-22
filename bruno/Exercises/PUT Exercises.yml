@@ -1,11 +1,11 @@
 info:
-  name: PUT Workouts
+  name: PUT Exercises
   type: http
   seq: 3
 
 http:
   method: PUT
-  url: http://localhost:8000/api/v1/workouts/1
+  url: http://localhost:8000/api/v1/exercises/1
   headers:
     - name: Content-Type
       value: application/json
@@ -13,9 +13,11 @@ http:
     type: json
     data: |-
       {
-        "title": "Torso",
-        "description": "Rutina de pierna",
-        "exercises": [1, 4, 5]
+        "name": "ggggg",
+        "description": "holggggga",
+        "weight": "532",
+        "reps": "45",
+        "category": "cardggio"
       }
   auth: inherit
 
