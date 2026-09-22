@@ -4,4 +4,7 @@ info:
   seq: 3
 
 request:
+  headers:
+    - name: Content-Type
+      value: application/json
   auth: inherit
