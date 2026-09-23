@@ -2,12 +2,23 @@
 let exercises = [
   {
     id: "1",
-    name: "curl de biceps",
-    description: "sube y abaja",
-    weight: "6", // peso en kilogramos
-    reps: "12", // repeticiones
+    name: "Press de banca",
+    description:
+      "Ejercicio compuesto que trabaja pectorales, hombros y tríceps acostado sobre un banco.",
+    weight: "60", // peso en kilogramos
+    reps: "10", // repeticiones
     category: "fuerza",
     createdAt: "2025-09-12T12:00:00Z",
+  },
+  {
+    id: "2",
+    name: "Sentadilla",
+    description:
+      "Ejercicio compuesto que fortalece cuádriceps, glúteos y zona lumbar.",
+    weight: "80", // peso en kilogramos
+    reps: "12", // repeticiones
+    category: "fuerza",
+    createdAt: "2025-09-13T08:00:00Z",
   },
 ];
 
@@ -47,6 +58,7 @@ const createExercise = (req, res) => {
     description,
     weight,
     reps: reps || "12",
+    category,
     createdAt: new Date().toISOString(),
   };
 
@@ -80,6 +92,7 @@ const updateExercise = (req, res) => {
     description,
     weight: weight || "5",
     reps: reps || "12",
+    category,
   };
 
   res.status(200).json(exercises[index]); // 7

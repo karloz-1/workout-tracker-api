@@ -2,10 +2,19 @@
 let workouts = [
   {
     id: "1",
-    title: "Pecho",
-    description: "Press banca 8-12 repeticiones, 3 series.",
-    exercises: [1, 2, 3],
+    title: "Fuerza básica",
+    description:
+      "Sesión de fuerza con press de banca y sentadilla, 3 series de 8 a 12 repeticiones.",
+    exercises: [1, 2],
     createdAt: "2026-01-30T18:00:00Z",
+  },
+  {
+    id: "2",
+    title: "Cardio HIIT",
+    description:
+      "Intervalos de alta intensidad en cinta, 8 rondas de 1 minuto con 30 segundos de descanso.",
+    exercises: [1, 2],
+    createdAt: "2026-02-02T07:30:00Z",
   },
 ];
 

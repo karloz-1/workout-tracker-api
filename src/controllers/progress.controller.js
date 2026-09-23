@@ -2,10 +2,17 @@
 let progress = [
   {
     id: "1",
-    idExercise: "2",
-    weight: "10",
-    reps: "12",
+    idExercise: "1",
+    weight: "60",
+    reps: "10",
     createdAt: "2025-09-12T12:00:00Z",
+  },
+  {
+    id: "2",
+    idExercise: "2",
+    weight: "80",
+    reps: "12",
+    createdAt: "2025-09-14T18:45:00Z",
   },
 ];
 

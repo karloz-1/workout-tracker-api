@@ -2,10 +2,17 @@
 let users = [
   {
     id: "1",
-    name: "Carlos Navia",
-    email: "carlos@example.com",
-    role: "user",
+    name: "Sofía Martínez",
+    email: "sofia.martinez@gmail.com",
+    role: "admin",
     createdAt: "2025-09-12T12:00:00Z",
+  },
+  {
+    id: "2",
+    name: "Andrés Ramírez",
+    email: "andres.ramirez@hotmail.com",
+    role: "user",
+    createdAt: "2025-09-15T10:30:00Z",
   },
 ];
 
