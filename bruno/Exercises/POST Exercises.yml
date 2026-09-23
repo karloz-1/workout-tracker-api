@@ -13,11 +13,11 @@ http:
     type: json
     data: |-
       {
-        "name": "nose",
-        "description": "hola",
-        "weight": "344",
-        "reps": "123",
-        "category": "cardio"
+        "name": "Curl de bíceps",
+        "description": "Flexión de codo con mancuernas para trabajar el bíceps.",
+        "weight": "12",
+        "reps": "15",
+        "category": "fuerza"
       }
   auth: inherit
 

@@ -13,11 +13,11 @@ http:
     type: json
     data: |-
       {
-        "name": "ggggg",
-        "description": "holggggga",
-        "weight": "532",
-        "reps": "45",
-        "category": "cardggio"
+        "name": "Plancha",
+        "description": "Ejercicio isométrico que activa el abdomen y los músculos estabilizadores.",
+        "weight": "0",
+        "reps": "60",
+        "category": "flexibilidad"
       }
   auth: inherit
 

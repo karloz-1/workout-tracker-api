@@ -13,9 +13,9 @@ http:
     type: json
     data: |-
       {
-        "title": "Biceps",
-        "description": "Rutina de biceps",
-        "exercises": [1, 4, 5]
+        "title": "Hombro completo",
+        "description": "Deltoides anterior, lateral y posterior en 3 series de 12 repeticiones.",
+        "exercises": [1, 2]
       }
   auth: inherit
 

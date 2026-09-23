@@ -13,9 +13,9 @@ http:
     type: json
     data: |-
       {
-        "idExercise": "4",
-        "weight": "45",
-        "reps": "20"
+        "idExercise": "2",
+        "weight": "85",
+        "reps": "10"
       }
   auth: inherit
 

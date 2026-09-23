@@ -13,9 +13,9 @@ http:
     type: json
     data: |-
       {
-        "title": "Torso",
-        "description": "Rutina de pierna",
-        "exercises": [1, 4, 5]
+        "title": "Pierna y glúteo",
+        "description": "Sentadillas, zancadas y peso muerto rumano.",
+        "exercises": [2]
       }
   auth: inherit
 
