@@ -1,105 +1,18 @@
 const express = require("express");
 const router = express.Router();
 
-// Estado en memoria (simulación)
-let exercises = [
-  {
-    id: "1",
-    name: "curl de biceps",
-    description: "sube y abaja",
-    weight: "6", // peso en kilogramos
-    reps: "12", // repeticiones
-    category: "fuerza",
-    createdAt: "2025-09-12T12:00:00Z",
-  },
-];
+const {
+  getExercises,
+  getExercisesById,
+  createExercise,
+  updateExercise,
+  deleteExercise,
+} = require("../../controllers/exercises.controller.js");
 
-// GET /api/v1/exercises
-router.get("/", (req, res) => {
-  res.status(200).json(exercises);
-});
-
-// GET /exercises/:id
-router.get("/:id", (req, res) => {
-  const { id } = req.params; // 1
-  const exercise = exercises.find((u) => u.id === id); // 2
-
-  if (!exercise) {
-    // 3
-    return res.status(404).json({ error: "Ejercicio no encontrado" });
-  }
-
-  res.status(200).json(exercise); // 4
-});
-
-// POST /exercises
-router.post("/", (req, res) => {
-  const { name, description, weight, reps, category } = req.body; // 1
-
-  if (!name || !description || !category) {
-    // 2
-    return res
-      .status(400)
-      .json({ error: "Name, description y category son requeridos" });
-  }
-
-  const newExercise = {
-    // 3
-    id: `${Date.now()}`, // identificador temporal
-    name,
-    description,
-    weight,
-    reps: reps || "12",
-    createdAt: new Date().toISOString(),
-  };
-
-  exercises.push(newExercise); // 4
-
-  res.status(201).json(newExercise); // 5
-});
-
-// PUT /exercises/:id
-router.put("/:id", (req, res) => {
-  const { id } = req.params; // 1
-  const { name, description, weight, reps, category } = req.body; // 1
-
-  const index = exercises.findIndex((u) => u.id === id); // 3
-  if (index === -1) {
-    // 4
-    return res.status(404).json({ error: "Ejercicio no encontrado" });
-  }
-
-  if (!name || !description || !category) {
-    // 2
-    return res
-      .status(400)
-      .json({ error: "Name, description y category son requeridos" });
-  }
-
-  exercises[index] = {
-    // 6
-    ...exercises[index], // conserva los datos previos
-    name,
-    description,
-    weight: weight || "5",
-    reps: reps || "12",
-  };
-
-  res.status(200).json(exercises[index]); // 7
-});
-
-// DELETE /exercises/:id
-router.delete("/:id", (req, res) => {
-  const { id } = req.params; // 1
-  const index = exercises.findIndex((u) => u.id === id); // 2
-
-  if (index === -1) {
-    // 3
-    return res.status(404).json({ error: "Ejercicio no encontrado" });
-  }
-
-  const deletedExercise = exercises.splice(index, 1); // 4
-  res.status(200).json({ deleted: deletedExercise[0].id }); // 5
-});
+router.get("/", getExercises);
+router.get("/:id", getExercisesById);
+router.post("/", createExercise);
+router.put("/:id", updateExercise);
+router.delete("/:id", deleteExercise);
 
 module.exports = router;
