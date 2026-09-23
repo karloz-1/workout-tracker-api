@@ -24,14 +24,14 @@ const getProgress = (req, res) => {
 // GET /progress/:id
 const getProgressById = (req, res) => {
   const { id } = req.params; // 1
-  const progress = progress.find((u) => u.id === id); // 2
+  const findProgress = progress.find((u) => u.id === id); // 2
 
-  if (!progress) {
+  if (!findProgress) {
     // 3
     return res.status(404).json({ error: "Progreso no encontrado" });
   }
 
-  res.status(200).json(progress); // 4
+  res.status(200).json(findProgress); // 4
 };
 
 // POST /progress
