@@ -90,6 +90,34 @@ const updateWorkout = (req, res) => {
   res.status(200).json(workouts[index]); // 7
 };
 
+// PATCH /workouts/:id
+const patchWorkout = (req, res) => {
+  const { id } = req.params;
+  const updates = req.body; // Campos opcionales enviados por el cliente
+
+  // 1. Buscar si el ejercicio existe
+  const index = workouts.findIndex((u) => u.id === id);
+  if (index === -1) {
+    return res.status(404).json({ error: "Entrenamiento no encontrado" });
+  }
+
+  // 2. Validar que al menos se envíe un campo para actualizar
+  if (Object.keys(updates).length === 0) {
+    return res
+      .status(400)
+      .json({ error: "Debe proporcionar al menos un campo para actualizar" });
+  }
+
+  // 3. Sobrescribir únicamente los campos recibidos manteniendo el resto
+  workouts[index] = {
+    ...workouts[index],
+    ...updates,
+  };
+
+  // 4. Responder con el ejercicio actualizado
+  res.status(200).json(workouts[index]);
+};
+
 // DELETE /workouts/:id
 const deleteWorkout = (req, res) => {
   const { id } = req.params; // 1
@@ -109,5 +137,6 @@ module.exports = {
   getWorkoutById,
   createWorkout,
   updateWorkout,
+  patchWorkout,
   deleteWorkout,
 };

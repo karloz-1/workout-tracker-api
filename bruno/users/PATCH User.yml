@@ -1,11 +1,17 @@
 info:
-  name: DELETE Users
+  name: PATCH User
   type: http
-  seq: 5
+  seq: 4
 
 http:
-  method: DELETE
+  method: PATCH
   url: http://localhost:8000/api/v1/users/1
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Carlos Gonzalez"
+      }
   auth: inherit
 
 settings:

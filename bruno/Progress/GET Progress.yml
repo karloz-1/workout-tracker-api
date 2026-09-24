@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: http://localhost:8000/api/v1/progress/1
+  url: http://localhost:8000/api/v1/progress/
   auth: inherit
 
 settings:

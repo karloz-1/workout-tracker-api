@@ -1,11 +1,17 @@
 info:
-  name: DELETE Progress
+  name: PATCH Progress
   type: http
-  seq: 5
+  seq: 4
 
 http:
-  method: DELETE
+  method: PATCH
   url: http://localhost:8000/api/v1/progress/1
+  body:
+    type: json
+    data: |-
+      {
+        "weight": "90"
+      }
   auth: inherit
 
 settings:

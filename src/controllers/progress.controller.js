@@ -2,14 +2,14 @@
 let progress = [
   {
     id: "1",
-    idExercise: "1",
+    idProgress: "1",
     weight: "60",
     reps: "10",
     createdAt: "2025-09-12T12:00:00Z",
   },
   {
     id: "2",
-    idExercise: "2",
+    idProgress: "2",
     weight: "80",
     reps: "12",
     createdAt: "2025-09-14T18:45:00Z",
@@ -36,19 +36,19 @@ const getProgressById = (req, res) => {
 
 // POST /progress
 const createProgress = (req, res) => {
-  const { idExercise, weight, reps } = req.body; // 1
+  const { idProgress, weight, reps } = req.body; // 1
 
-  if (!idExercise || !weight || !reps) {
+  if (!idProgress || !weight || !reps) {
     // 2
     return res
       .status(400)
-      .json({ error: "IdExercise, weight y reps son requeridos" });
+      .json({ error: "IdProgress, weight y reps son requeridos" });
   }
 
   const newprogress = {
     // 3
     id: `${Date.now()}`, // identificador temporal
-    idExercise,
+    idProgress,
     weight,
     reps,
     createdAt: new Date().toISOString(),
@@ -62,7 +62,7 @@ const createProgress = (req, res) => {
 // PUT /progress/:id
 const updateProgress = (req, res) => {
   const { id } = req.params; // 1
-  const { idExercise, weight, reps } = req.body; // 1
+  const { idProgress, weight, reps } = req.body; // 1
 
   const index = progress.findIndex((u) => u.id === id); // 3
   if (index === -1) {
@@ -70,22 +70,50 @@ const updateProgress = (req, res) => {
     return res.status(404).json({ error: "Progreso no encontrado" });
   }
 
-  if (!idExercise || !weight || !reps) {
+  if (!idProgress || !weight || !reps) {
     // 2
     return res
       .status(400)
-      .json({ error: "IdExercise, weight y reps son requeridos" });
+      .json({ error: "IdProgress, weight y reps son requeridos" });
   }
 
   progress[index] = {
     // 6
     ...progress[index], // conserva los datos previos
-    idExercise,
+    idProgress,
     weight,
     reps,
   };
 
   res.status(200).json(progress[index]); // 7
+};
+
+// PATCH /progress/:id
+const patchProgress = (req, res) => {
+  const { id } = req.params;
+  const updates = req.body; // Campos opcionales enviados por el cliente
+
+  // 1. Buscar si el ejercicio existe
+  const index = progress.findIndex((u) => u.id === id);
+  if (index === -1) {
+    return res.status(404).json({ error: "Ejercicio no encontrado" });
+  }
+
+  // 2. Validar que al menos se envíe un campo para actualizar
+  if (Object.keys(updates).length === 0) {
+    return res
+      .status(400)
+      .json({ error: "Debe proporcionar al menos un campo para actualizar" });
+  }
+
+  // 3. Sobrescribir únicamente los campos recibidos manteniendo el resto
+  progress[index] = {
+    ...progress[index],
+    ...updates,
+  };
+
+  // 4. Responder con el ejercicio actualizado
+  res.status(200).json(progress[index]);
 };
 
 // DELETE /progress/:id
@@ -107,5 +135,6 @@ module.exports = {
   getProgressById,
   createProgress,
   updateProgress,
+  patchProgress,
   deleteProgress,
 };
