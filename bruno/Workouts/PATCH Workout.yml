@@ -1,11 +1,17 @@
 info:
-  name: DELETE Workouts
+  name: PATCH Workout
   type: http
-  seq: 5
+  seq: 4
 
 http:
-  method: DELETE
+  method: PATCH
   url: http://localhost:8000/api/v1/workouts/1
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Mayor flexibilidad"
+      }
   auth: inherit
 
 settings:

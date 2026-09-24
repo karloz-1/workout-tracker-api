@@ -77,6 +77,34 @@ const updateUser = (req, res) => {
   res.status(200).json(users[index]);
 };
 
+// PATCH /users/:id
+const patchUser = (req, res) => {
+  const { id } = req.params;
+  const updates = req.body; // Campos opcionales enviados por el cliente
+
+  // 1. Buscar si el ejercicio existe
+  const index = users.findIndex((u) => u.id === id);
+  if (index === -1) {
+    return res.status(404).json({ error: "Usuario no encontrado" });
+  }
+
+  // 2. Validar que al menos se envíe un campo para actualizar
+  if (Object.keys(updates).length === 0) {
+    return res
+      .status(400)
+      .json({ error: "Debe proporcionar al menos un campo para actualizar" });
+  }
+
+  // 3. Sobrescribir únicamente los campos recibidos manteniendo el resto
+  users[index] = {
+    ...users[index],
+    ...updates,
+  };
+
+  // 4. Responder con el ejercicio actualizado
+  res.status(200).json(users[index]);
+};
+
 // DELETE /users/:id
 const deleteUser = (req, res) => {
   const { id } = req.params;
@@ -95,5 +123,6 @@ module.exports = {
   getUserById,
   createUser,
   updateUser,
+  patchUser,
   deleteUser,
 };
