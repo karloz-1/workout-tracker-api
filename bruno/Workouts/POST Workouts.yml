@@ -1,0 +1,27 @@
+info:
+  name: POST Workouts
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: http://localhost:8000/api/v1/workouts/
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Hombro completo",
+        "description": "Deltoides anterior, lateral y posterior en 3 series de 12 repeticiones.",
+        "exercises": [1, 2]
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,27 @@
+info:
+  name: PUT Users
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: http://localhost:8000/api/v1/users/1
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Manuel Torres",
+        "email": "manuel.torres@outlook.com",
+        "role": "admin"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

@@ -1,0 +1,29 @@
+info:
+  name: PUT Exercises
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: http://localhost:8000/api/v1/exercises/1
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Plancha",
+        "description": "Ejercicio isométrico que activa el abdomen y los músculos estabilizadores.",
+        "weight": "0",
+        "reps": "60",
+        "category": "flexibilidad"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+  forwardAuthorizationHeader: false

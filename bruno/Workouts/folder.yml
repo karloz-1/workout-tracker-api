@@ -1,0 +1,10 @@
+info:
+  name: Workouts
+  type: folder
+  seq: 2
+
+request:
+  headers:
+    - name: Content-Type
+      value: application/json
+  auth: inherit
